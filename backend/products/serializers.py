@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from .models import Category, Product, Seller
 
+
 class CategorySerializer(ModelSerializer):
     random_photo = SerializerMethodField()
 
@@ -20,12 +21,13 @@ class CategorySerializer(ModelSerializer):
 
 
 class SellerSerializer(ModelSerializer):
-        class Meta:
-            model = Seller
-            fields = (
-                'id',
-                'name'
-            )
+    class Meta:
+        model = Seller
+        fields = (
+            'id',
+            'name'
+        )
+
 
 class ProductSerializer(ModelSerializer):
     class Meta:
@@ -40,7 +42,8 @@ class ProductSerializer(ModelSerializer):
             'photo',
         )
 
-class ProductAllInfoSerializer(ModelSerializer):
+
+class ProductsAllInfoSerializer(ModelSerializer):
     category = CategorySerializer()
     seller = SellerSerializer()
 
@@ -49,7 +52,7 @@ class ProductAllInfoSerializer(ModelSerializer):
         fields = (
             'id',
             'photo',
-            'price'
+            'price',
             'title',
             'category',
             'seller',
