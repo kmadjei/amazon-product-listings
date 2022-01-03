@@ -10,13 +10,14 @@ class CategorySerializer(ModelSerializer):
         except:
             return ""
 
-        class Meta: 
-            model = Category
-            fields = (
-                'id',
-                'name',
-                'random_photo'
-            )
+    class Meta:
+        model = Category
+        fields = (
+            'id',
+            'name',
+            'random_photo'
+        )
+
 
 class SellerSerializer(ModelSerializer):
         class Meta:
@@ -44,6 +45,7 @@ class ProductAllInfoSerializer(ModelSerializer):
     seller = SellerSerializer()
 
     class Meta:
+        model = Product
         fields = (
             'id',
             'photo',
